@@ -1,10 +1,9 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
+  font-family: "Playfair Display", serif;
   background-color: black;
   text-align: center;
-  font-family: "Playfair Display", serif;
 }
 
 main {
@@ -20,6 +19,8 @@ main {
   opacity: 0.5;
   z-index: 1;
 }
+
+/* Estilos generales */
 h1,
 p,
 img {
@@ -39,23 +40,49 @@ p {
   font-size: 20px;
 }
 
-img {
-  width: 200px; /* Ajusta el tamaño de la imagen */
-  height: 200px; /* Asegura que sea un cuadrado para un círculo perfecto */
-  border-radius: 50%; /* Hace la imagen redonda */
-  object-fit: cover; /* Mantiene la proporción de la imagen sin deformarla */
+/* Imágenes redondas */
+img,
+#fox {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  object-fit: cover;
 }
 
+/* Contenedor flexible */
 .flex {
   display: flex;
   justify-content: center;
   gap: 200px;
   align-items: center;
+  flex-wrap: wrap; /* Permite que los elementos se acomoden en pantallas pequeñas */
 }
 
-#fox {
-  width: 200px; /* Ajusta el tamaño de la imagen */
-  height: 200px; /* Asegura que sea un cuadrado para un círculo perfecto */
-  border-radius: 50%; /* Hace la imagen redonda */
-  object-fit: cover; /* Mantiene la proporción de la imagen sin deformarla */
+/* 🌍 Media Query para dispositivos móviles */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 35px; /* Reduce el tamaño del título */
+    padding-top: 100px; /* Menos espacio en la parte superior */
+  }
+
+  p {
+    font-size: 16px; /* Texto más pequeño para móviles */
+    padding: 0 10px; /* Añade espacio a los lados */
+  }
+
+  img,
+  #fox {
+    width: 120px; /* Reduce el tamaño de las imágenes */
+    height: 120px;
+  }
+
+  .flex {
+    flex-direction: column; /* Alinea los elementos de forma vertical */
+    gap: 20px; /* Menos espacio entre ellos */
+  }
+
+  main {
+    height: auto; /* Permite que el contenido crezca si es necesario */
+    min-height: 100vh; /* Asegura que ocupe al menos toda la pantalla */
+  }
 }
